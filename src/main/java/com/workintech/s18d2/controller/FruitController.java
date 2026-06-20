@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/fruits")
+@RequestMapping("/fruit")
 public class FruitController {
     private final FruitService fruitService;
     public FruitController(FruitService fruitService) {
@@ -33,8 +33,8 @@ public class FruitController {
         return fruitService.save(fruit);
     }
 
-    @GetMapping("/search/")
-    public List<Fruit> getFruitsByName(@RequestParam String name) {
+    @GetMapping("/name/{name}")
+    public List<Fruit> getFruitsByName(@PathVariable String name) {
         return fruitService.searchByName(name);
     }
 
